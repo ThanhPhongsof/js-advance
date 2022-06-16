@@ -52,6 +52,13 @@ button {
   cursor: pointer;
 }
 
+.boxed {
+  width: 20rem;
+  height: 20rem;
+  padding: 2rem;
+  border: 2px solid;
+}
+
 .modal {
   position: fixed;
   top: 0;
