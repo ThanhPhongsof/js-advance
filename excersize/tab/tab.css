@@ -1,0 +1,111 @@
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.text--light {
+  font-weight: 300;
+}
+
+.text--normal {
+  font-style: normal;
+}
+
+.text--default {
+  color: #999;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  line-height: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+.tab {
+  padding: 2.5rem;
+  border-radius: 1rem;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 50px auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 500px;
+}
+.tab-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+.tab-item {
+  cursor: pointer;
+  padding: 1.2rem 2rem;
+  border-radius: 5rem;
+  color: #818e9b;
+  background-color: #f4f5f7;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 500;
+  flex: 1;
+  transition: all 0.5s linear;
+}
+.tab-item.active {
+  color: white;
+  background-color: #2979ff;
+  pointer-events: none;
+}
+.tab-item:not(:first-child) {
+  margin-left: 1.5rem;
+}
+.tab-content {
+  display: none;
+  transition: all 0.5s linear;
+}
+.tab-content.active {
+  display: block;
+}
+.post {
+  display: flex;
+  align-items: center;
+}
+.post:not(:first-child) {
+  margin-bottom: 2rem;
+}
+.post-title {
+  color: #4e4f51;
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 14px;
+}
