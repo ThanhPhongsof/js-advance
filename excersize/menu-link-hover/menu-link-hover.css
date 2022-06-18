@@ -4,6 +4,12 @@ html {
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #de4b3e;
+  --secondary: #c74237;
+  --thirty: #3d63f7;
+}
+
 .text {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
@@ -56,57 +62,29 @@ img {
   cursor: zoom-in;
 }
 
-.content img {
-  cursor: zoom-in;
-}
-.content {
-  max-width: 1024px;
-  padding: 50px 25px;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 2;
-  margin: 0 auto;
-}
-.content p {
-  margin-bottom: 30px;
-}
-.content img {
-  display: block;
-  margin-bottom: 30px;
-}
-
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999999;
-  background-color: rgba(0, 0, 0, 0.75);
+.menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
+  margin: 5rem auto;
 }
 
-.lightbox-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 25px;
+.menu-item {
+  margin: 0 2.5rem;
 }
 
-.lightbox-content img {
-  max-height: 400px;
-  width: 90%;
-  object-fit: cover;
-  border-radius: 4px;
+.menu-link {
+  display: inline-block;
+  color: #000;
+  position: relative;
 }
 
-.lightbox-content i {
-  color: #fff;
-  font-size: 6rem;
-  flex-shrink: 0;
-  cursor: pointer;
+.line-effect {
+  width: 0;
+  height: 2px;
+  background-color: var(--thirty);
+  position: fixed;
+  pointer-events: none;
+  transition: all 0.25s linear;
 }

@@ -20,7 +20,7 @@ function handleZoomImage(e) {
   const template = `
   <div class="lightbox">
     <div class="lightbox-content">
-    <i class="fa fa-angle-left lightbox-previous"></i>
+    <i class="fa fa-angle-left lightbox-prev"></i>
       <img
         src="${image}"
         alt=""
@@ -34,7 +34,30 @@ function handleZoomImage(e) {
 }
 
 document.body.addEventListener("click", function (e) {
+  const lightImage = document.querySelector(".lightbox-image");
+  if (!lightImage) return;
+  let lightSrc = lightImage.getAttribute("src");
+  index = [...images].findIndex(
+    (item) => item.getAttribute("src") === lightSrc
+  );
   if (e.target.matches(".lightbox")) {
     e.target.parentNode.removeChild(e.target);
+  } else if (e.target.matches(".lightbox-next")) {
+    index = index + 1;
+    if (index > images.length - 1) {
+      index = 0;
+    }
+    displayLightImage(index, lightImage);
+  } else if (e.target.matches(".lightbox-prev")) {
+    index = index - 1;
+    if (index < 0) {
+      index = images.length - 1;
+    }
+    displayLightImage(index, lightImage);
   }
 });
+
+function displayLightImage(index, lightImage) {
+  const newSrc = [...images][index].getAttribute("src");
+  lightImage.setAttribute("src", newSrc);
+}

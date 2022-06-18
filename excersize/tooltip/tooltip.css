@@ -61,3 +61,35 @@ button {
 img {
   cursor: zoom-in;
 }
+.text {
+  color: var(--thirty);
+  display: block;
+  font-size: 20px;
+  margin: 15rem auto;
+  width: max-content;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip-text {
+  position: fixed;
+  /* transform: translateX(-50%); */
+  background-color: var(--thirty);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  display: block;
+}
+
+.tooltip-text:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-top: 1rem solid var(--thirty);
+}
