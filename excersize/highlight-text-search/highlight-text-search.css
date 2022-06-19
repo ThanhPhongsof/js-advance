@@ -1,0 +1,38 @@
+:root {
+  --primary: #de4b3e;
+  --secondary: #c74237;
+  --thirty: #3d63f7;
+}
+
+.primary {
+  /* color: var(--primary); */
+}
+
+.text-bold {
+  font-weight: 500;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+  width: 50rem;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 2px auto;
+}
+
+.dropdown-list {
+  margin-top: 2rem;
+  font-weight: 3400;
+}
+
+.input-search {
+  width: 100%;
+  display: block;
+  padding: 2rem;
+  line-height: 1;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  color: #333;
+}

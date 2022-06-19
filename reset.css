@@ -141,3 +141,61 @@ table {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.text {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.text--light {
+  font-weight: 300;
+}
+
+.text--normal {
+  font-style: normal;
+}
+
+.text--default {
+  color: #999;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  color: #333;
+  font-size: 1.4rem;
+}
+
+input,
+button {
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  line-height: 1;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  cursor: zoom-in;
+}
