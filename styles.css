@@ -6,9 +6,5 @@
 }
 
 body {
-  background-image: linear-gradient(
-    to right bottom,
-    var(--thirty),
-    var(--fourty)
-  );
+  background-image: linear-gradient(to right, var(--thirty), var(--fourty));
 }
