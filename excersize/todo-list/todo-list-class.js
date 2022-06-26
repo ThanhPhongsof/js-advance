@@ -1,5 +1,29 @@
 class Model {
-  constructor() {}
+  constructor() {
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
+  }
+
+  handleTodoChange(handler) {
+    this.todoListChange = handler;
+  }
+
+  _reload(todos) {
+    this.todoListChange(todos);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
+  }
+
+  addTodos(todoText) {
+    if (todoText.length > 0) {
+      this.todos.push(todoText);
+    }
+    this._reload(this.todos);
+  }
+
+  removeTodo(todoText) {
+    const index = this.todos.findIndex((item) => item === todoText);
+    this.todos.splice(index, 1);
+    this._reload(this.todos);
+  }
 }
 
 class View {
@@ -16,21 +40,74 @@ class View {
     this.input.name = "todo";
 
     this.submit = this.createElement("button", "todo-submit");
-    this.submit.type = "button";
-    this.submit.name = "Add";
+    this.submit.type = "submit";
+    this.submit.textContent = "Add";
 
-    this.form.appendChild(this.input, this.submit);
+    this.form.append(this.input, this.submit);
+
+    this.todoList = this.createElement("div", "todo-list");
+    this.todoWrapper.append(this.form, this.todoList);
+    this.app.appendChild(this.todoWrapper);
   }
 
   createElement(tag, className) {
     const elm = document.createElement(tag);
-    if (className) elm.className.add(className);
-    return;
+    if (className) elm.classList.add(className);
+    return elm;
   }
 
   getElement(selector) {
     const elm = document.querySelector(selector);
     return elm;
+  }
+
+  get _todoValue() {
+    return this.input.value;
+  }
+
+  _resetValue() {
+    this.input.value = "";
+  }
+
+  displayTodos(todos) {
+    while (this.todoList.firstChild) {
+      this.todoList.removeChild(this.todoList.firstChild);
+    }
+    if (todos.length > 0) {
+      todos.forEach((todoText) => {
+        const todoItem = this.createElement("div", "todo-item");
+        const span = this.createElement("span", "todo-text");
+        span.classList.add("todo-text-color");
+        span.textContent = todoText;
+
+        const icon = this.createElement("i");
+        icon.className = "fa fa-trash todo-remove";
+        icon.setAttribute("data-value", todoText);
+
+        todoItem.append(span, icon);
+        this.todoList.append(todoItem);
+      });
+    }
+  }
+
+  viewAddTodo(handler) {
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (this._todoValue) {
+        handler(this._todoValue);
+        this._resetValue();
+      }
+    });
+  }
+
+  viewRemoveTodo(handler) {
+    this.todoList.addEventListener("click", (e) => {
+      if (e.target.matches(".todo-remove")) {
+        const value = e.target.dataset.value;
+        handler(value);
+      }
+    });
   }
 }
 
@@ -38,7 +115,24 @@ class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+
+    this.model.handleTodoChange(this.handleTodoChange);
+    this.view.viewAddTodo(this.handleAddTodo);
+    this.view.viewRemoveTodo(this.handleRemoveTodo);
+    this.handleTodoChange(this.model.todos);
   }
+
+  handleTodoChange = (todos) => {
+    this.view.displayTodos(todos);
+  };
+
+  handleAddTodo = (todoText) => {
+    this.model.addTodos(todoText);
+  };
+
+  handleRemoveTodo = (todoText) => {
+    this.model.removeTodo(todoText);
+  };
 }
 
 const app = new Controller(new Model(), new View());
