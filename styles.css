@@ -8,3 +8,7 @@
 body {
   background-image: linear-gradient(to right, var(--thirty), var(--fourty));
 }
+
+joke {
+  display: flex;
+}
