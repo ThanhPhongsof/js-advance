@@ -1,0 +1,74 @@
+:root {
+  --primary: #de4b3e;
+  --secondary: #c74237;
+  --thirty: #c4cef7;
+  --fourty: #6a5af9;
+}
+
+body {
+  background-image: linear-gradient(to right, var(--thirty), var(--fourty));
+}
+
+.joke {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 5rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.joke-button {
+  border: 0;
+  outline: none;
+  display: block;
+  padding: 0 3rem;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #000;
+  position: relative;
+  height: 5.5rem;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.joke-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.loader {
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s infinite linear forwards;
+  display: none;
+}
+
+.joke.is-loading .joke-button span {
+  display: none;
+}
+
+.joke.is-loading .joke-button .loader {
+  display: block;
+}
+
+.joke.is-loading .joke-button {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
