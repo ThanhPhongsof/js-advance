@@ -1,0 +1,44 @@
+{
+  "course": [
+    {
+      "image": "https://images.unsplash.com/photo-1655777214372-cd6d0b75fcfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "title": "Learn Python: The Complete Python Programming Course",
+      "author": "The Codex",
+      "rating": "4",
+      "price": "99.99",
+      "bestSeller": false,
+      "buyAmount": "20000",
+      "id": 1
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1656440401665-7775f9eee002?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "title": "Microsoft Excel - Excel from Beginner to Advanced test",
+      "author": "The Code Gang",
+      "rating": 50000,
+      "price": 12,
+      "bestSeller": false,
+      "buyAmount": "122200",
+      "id": 2
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1656439136090-af4284b94d15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+      "title": "Complete React Developer in 2022 (w/ Redux, Hooks, GraphQL) test",
+      "author": "The Code Fun",
+      "rating": 4,
+      "price": 24,
+      "bestSeller": true,
+      "buyAmount": "22222",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
